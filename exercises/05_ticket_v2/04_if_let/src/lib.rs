@@ -5,10 +5,28 @@ enum Shape {
 }
 
 impl Shape {
-    // TODO: Implement the `radius` method using
-    //  either an `if let` or a `let/else`.
+    /*
+    In Rust, when you destructure an enum variant, you create
+    bindings for its fields. In this case, radius becomes a local
+    variable holding the value of the circle's radius.
+    This allows you to use *radius to dereference it
+    (since it's a reference due to the method taking &self)
+    and obtain the actual value of type f64.
+    */
+    // pub fn radius(&self) -> f64 {
+    //     if let Shape::Circle { radius } = self {
+    //         *radius
+    //     } else {
+    //         panic!("not a circle")
+    //     }
+    // }
+
     pub fn radius(&self) -> f64 {
-        todo!()
+        let Shape::Circle { radius } = self else {
+            panic!("not a circle")
+        };
+
+        *radius
     }
 }
 
