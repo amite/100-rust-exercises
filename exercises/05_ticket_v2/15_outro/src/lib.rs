@@ -21,6 +21,7 @@ pub use title::TicketTitle;
 // Careful though: if you had any invariants that spanned multiple fields, you
 // would need to ensure that those invariants are still maintained and go back
 // to making the fields private.
+
 pub struct Ticket {
     pub title: TicketTitle,
     pub description: TicketDescription,
